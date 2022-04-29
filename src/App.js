@@ -1,15 +1,15 @@
-import React from 'react';
-import { DragDropContext } from 'react-beautiful-dnd';
+import React from 'react'
+import { DragDropContext } from 'react-beautiful-dnd'
 
-import { HEROES, COMICS } from './custom/data';
-import { shuffle, getTimeLeft, move, GAME_STATE } from './custom/utils';
+import { HEROES, COMICS } from './custom/data'
+import { shuffle, getTimeLeft, move, GAME_STATE } from './custom/utils'
 
-import Modal from './components/Modal';
-import Header from './components/Header';
-import Dropzone from './components/Dropzone';
-import Footer from './components/Footer';
+import Modal from './components/Modal'
+import Header from './components/Header'
+import Dropzone from './components/Dropzone'
+import Footer from './components/Footer'
 
-const GAME_DURATION = 1000 * 30; // 30 seconds
+const GAME_DURATION = 1000 * 30 // 30 seconds
 
 const initialState = {
   // we initialize the state by populating the bench with a shuffled collection of heroes
@@ -18,13 +18,13 @@ const initialState = {
   [COMICS.MARVEL]: [],
   gameState: GAME_STATE.READY,
   timeLeft: 0,
-};
+}
 
 class App extends React.Component {
-  state = initialState;
+  state = initialState
 
   startGame = () => {
-    this.currentDeadline = Date.now() + GAME_DURATION;
+    this.currentDeadline = Date.now() + GAME_DURATION
 
     this.setState(
       {
@@ -32,51 +32,52 @@ class App extends React.Component {
         timeLeft: getTimeLeft(this.currentDeadline),
       },
       this.gameLoop
-    );
-  };
+    )
+  }
 
   gameLoop = () => {
     this.timer = setInterval(() => {
-      const timeLeft = getTimeLeft(this.currentDeadline);
-      const isTimeout = timeLeft <= 0;
+      const timeLeft = getTimeLeft(this.currentDeadline)
+      const isTimeout = timeLeft <= 0
       if (isTimeout && this.timer) {
-        clearInterval(this.timer);
+        clearInterval(this.timer)
       }
 
       this.setState({
         timeLeft: isTimeout ? 0 : timeLeft,
         ...(isTimeout ? { gameState: GAME_STATE.DONE } : {}),
-      });
-    }, 1000);
-  };
+      })
+    }, 1000)
+  }
 
   endGame = () => {
+
     if (this.timer) {
-      clearInterval(this.timer);
+      clearInterval(this.timer)
     }
 
     this.setState({
-      gameState: GAME_STATE.DONE,
-    });
-  };
+      gameState: GAME_STATE.DONE
+    })
+  }
 
   resetGame = () => {
-    this.setState(initialState);
-  };
+    this.setState(initialState)
+  }
 
   onDragEnd = ({ source, destination }) => {
     if (!destination) {
-      return;
+      return
     }
 
     this.setState(state => {
-      return move(state, source, destination);
-    });
-  };
+      return move(state, source, destination)
+    })
+  }
 
   render() {
-    const { gameState, timeLeft, bench, ...groups } = this.state;
-    const isDropDisabled = gameState === GAME_STATE.DONE;
+    const { gameState, timeLeft, bench, ...groups } = this.state
+    const isDropDisabled = gameState === GAME_STATE.DONE
 
     return (
       <>
@@ -112,14 +113,14 @@ class App extends React.Component {
         )}
         <Footer />
       </>
-    );
+    )
   }
 
   componentWillUnmount() {
     if (this.timer) {
-      clearInterval(this.timer);
+      clearInterval(this.timer)
     }
   }
 }
 
-export default App;
+export default App

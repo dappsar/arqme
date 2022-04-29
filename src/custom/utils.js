@@ -1,4 +1,5 @@
 import { HEROES, COMICS } from './data';
+import Firebase from '../components/Firebase'
 
 // the Knuth shuffle algorithm
 export function shuffle(array) {
@@ -36,13 +37,25 @@ function calculateScore(groupedHeroes, comics) {
   }, 0);
 }
 
+export function saveScore (name, score) {
+  const db = Firebase.firestore()
+  db.collection('scores').add({
+    name: name,
+    score: score
+  }) 
+}
+
 export function getTotalScore(groups, timeLeft) {
   const gameScore = Object.values(COMICS).reduce(
     (sum, comicsName) => sum + calculateScore(groups[comicsName], comicsName),
     0
   );
+  
   const timeBonus = getSeconds(timeLeft);
-  return gameScore ? gameScore + timeBonus : 0;
+  const score = gameScore ? gameScore + timeBonus : 0
+  saveScore ('pepe', score)
+
+  return score
 }
 
 // method to handle to the heroe cards movement
