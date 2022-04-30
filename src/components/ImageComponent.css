@@ -1,11 +1,17 @@
 .dialog {
-  box-shadow: 0 2px 1px -1px black;
   position: static;
   left: 0%;
   top: 0%;
 }
 
-.image {
-  margin-left: 40px;
+.image-small {
+  margin: 0px;
   width: 85%;
+  height: 100%;
+}
+
+.image-big {
+  margin: 0px;
+  width: 100%;
+  height: 100%;
 }

@@ -1,5 +1,4 @@
 import React from 'react'
-import { DragDropContext } from 'react-beautiful-dnd'
 
 import { HEROES, COMICS } from './custom/data'
 import { shuffle, getTimeLeft, move, GAME_STATE } from './custom/utils'
@@ -7,8 +6,8 @@ import { shuffle, getTimeLeft, move, GAME_STATE } from './custom/utils'
 import ModalReady from './components/ModalReady'
 import ModalEnd from './components/ModalEnd'
 import Header from './components/Header'
-import Dropzone from './components/Dropzone'
 import Footer from './components/Footer'
+import Content from './components/Content'
 
 import './app.css';
 
@@ -85,6 +84,7 @@ class App extends React.Component {
     })
   }
 
+
   render() {
     const { gameState, timeLeft, bench, ...groups } = this.state
     const isDropDisabled = gameState === GAME_STATE.DONE
@@ -106,55 +106,12 @@ class App extends React.Component {
         )}
         {(this.state.gameState === GAME_STATE.PLAYING ||
           this.state.gameState === GAME_STATE.DONE) && (
-          <DragDropContext onDragEnd={this.onDragEnd}>
-            <div className="container-fluid d-flex flex-column">
-              <div className="columns">
-                <div className="col-3">
-                  <Dropzone
-                    id="bench"
-                    heroes={bench}
-                    isDropDisabled={isDropDisabled}
-                  />
-                </div>
-                <div className="col-3">
-                  <Dropzone
-                    id={COMICS.DR}
-                    heroes={this.state[COMICS.DR]}
-                    isDropDisabled={isDropDisabled}
-                  />
-                  <Dropzone
-                    id={COMICS.OO}
-                    heroes={this.state[COMICS.OO]}
-                    isDropDisabled={isDropDisabled}
-                  />
-                </div>
-                <div className="col-3">
-                  <Dropzone
-                    id={COMICS.PP}
-                    heroes={this.state[COMICS.PP]}
-                    isDropDisabled={isDropDisabled}
-                  />
-                  <Dropzone
-                    id={COMICS.AP}
-                    heroes={this.state[COMICS.AP]}
-                    isDropDisabled={isDropDisabled}
-                  />
-                </div>
-                <div className="col-3">
-                  <Dropzone
-                    id={COMICS.AS}
-                    heroes={this.state[COMICS.AS]}
-                    isDropDisabled={isDropDisabled}
-                  />
-                  <Dropzone
-                    id={COMICS.DP}
-                    heroes={this.state[COMICS.DP]}
-                    isDropDisabled={isDropDisabled}
-                  />
-                </div>
-              </div>
-            </div>
-          </DragDropContext>
+            <Content 
+              onDragEnd={this.onDragEnd}
+              heroes={bench}
+              isDropDisabled={isDropDisabled}
+              curState={this.state}
+            />
         )}
         <Footer />
       </>

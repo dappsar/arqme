@@ -14,7 +14,7 @@ export default class ImageComponent extends React.Component {
     return (
       <div>
         <img
-          className="image"
+          className="image-small"
           src={stackImage}
           onClick={this.handleShowDialog}
           alt="not ofund"
@@ -27,7 +27,7 @@ export default class ImageComponent extends React.Component {
             onClick={this.handleShowDialog}
           >
             <img
-              className="small"
+              className="image-big"
               src={stackImage}
               onClick={this.handleShowDialog}
               alt="not found"

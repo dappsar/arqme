@@ -22,10 +22,10 @@ class ModalReady extends React.Component {
       <div className="modal modal-dialog-centered active">
         <div className="modal-container">
           <div className="modal-header">
-            <div className="modal-title h2">Digital Architecture Game!</div>
+            <div className="modal-title h3">Digital Architecture Game!</div>
             <hr/>
           </div>
-          <div className="modal-body m-2">
+          <div className="modal-body m-0">
             <div className="content container-fluid d-flex flex-column">
               <div className="col-md-6 m-1 text-center">
                 <label>
@@ -50,9 +50,9 @@ class ModalReady extends React.Component {
                     required/>
                 </label>
               </div>
-              <div className="col-md-6 m-1 text-center">
+              <div className="col-md-6 m-left-2 text-center">
                 <label>
-                  <strong>Bucket lists and words</strong>
+                  <strong>Buckets list and words</strong>
                   <br/><br/>
                 </label>
                 <ImageComponent />
