@@ -1,50 +1,78 @@
-import React from 'react'
+import React from 'react';
+import ImageComponent from "./ImageComponent";
+import "./modalReady.css";
 
-const handleInputPlayerChange = (e) => {
-  console.log('e',e)
-  /*
-  updateFormData({
-    ...formData,
+const initialState = Object.freeze({
+  player: ''
+})
 
-    // Trimming any whitespace
-    [e.target.name]: e.target.value.trim()
-  });
-  */
-}
+class ModalReady extends React.Component {
+  state = initialState
 
-const ModalReady = ({ startGame }) => (
-  <div className="modal modal-sm active">
-    <div className="modal-overlay" />
-    <div className="modal-container">
-      <div className="modal-header">
-        <div className="modal-title h5">Digital Architecture Game!</div>
-      </div>
-      <div className="modal-body">
-        <div className="content">
-          <span>
-            {`Drag and Drop the words in the correct bucket list, sort them alphabetically and quickly for better score!`}
-          </span>
-          <br/><br/>
-          <label>
-            Player
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Player Name"
-              onChange={handleInputPlayerChange}
-              id="player"
-              required/>
-          </label>
+  handleInputPlayerChange = (e) => {
+    this.setState (
+      {
+        player: e.target.value.trim()
+      }
+    )
+  }
+
+  render() {
+    return (
+      <div className="modal modal-dialog-centered active">
+        <div className="modal-container">
+          <div className="modal-header">
+            <div className="modal-title h2">Digital Architecture Game!</div>
+            <hr/>
+          </div>
+          <div className="modal-body m-2">
+            <div className="content container-fluid d-flex flex-column">
+              <div className="col-md-6 m-1 text-center">
+                <label>
+                  <strong>Instructions</strong>
+                  <br/><br/>
+                  <p>
+                    Drag and Drop the words in the correct bucket list
+                  </p>
+                  <small>
+                    (TIP: Sort items alphabetically and quickly for better score!)
+                  </small>
+                </label>
+                <br/>
+                <label>
+                  <br/>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Player Name"
+                    onChange={this.handleInputPlayerChange}
+                    id="player"
+                    required/>
+                </label>
+              </div>
+              <div className="col-md-6 m-1 text-center">
+                <label>
+                  <strong>Bucket lists and words</strong>
+                  <br/><br/>
+                </label>
+                <ImageComponent />
+              </div>
+            </div>
+          </div>
+          <div className="modal-footer">
+            <button
+              className="btn btn-primary"
+              onClick={() => this.props.startGame(this.state.player)}
+              disabled={this.state.player === ''}
+              >
+              Start new game
+            </button>
+          </div>
         </div>
       </div>
-      <div className="modal-footer">
-        <button
-          className="btn btn-primary" onClick={() => startGame('sss')}>
-          Start new game
-        </button>
-      </div>
-    </div>
-  </div>
-)
+    )
+  }
 
-export default ModalReady;
+}
+
+export default ModalReady

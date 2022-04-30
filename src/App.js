@@ -4,7 +4,7 @@ import { DragDropContext } from 'react-beautiful-dnd'
 import { HEROES, COMICS } from './custom/data'
 import { shuffle, getTimeLeft, move, GAME_STATE } from './custom/utils'
 
-import ModalReady from './components/ModalReady2'
+import ModalReady from './components/ModalReady'
 import ModalEnd from './components/ModalEnd'
 import Header from './components/Header'
 import Dropzone from './components/Dropzone'
@@ -109,7 +109,7 @@ class App extends React.Component {
           <DragDropContext onDragEnd={this.onDragEnd}>
             <div className="container-fluid d-flex flex-column">
               <div className="columns">
-                <div id="scrolly" className="col-3">
+                <div className="col-3">
                   <Dropzone
                     id="bench"
                     heroes={bench}

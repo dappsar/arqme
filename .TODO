@@ -1,13 +1,10 @@
-- Agregar pantalla inicial con stack de arquitectura con clock de tiempo (popUp)
-
 - Actualizar imágenes para cada palabra
 
-- Actualiza variables comics y heroes
-
+- Acomodar layout
 
 -----
 
-- Acomodar layout
+- Actualiza variables comics y heroes
 
 - Se puede agregar más detalle a cada tarea:
   https://www.freecodecamp.org/news/how-to-add-drag-and-drop-in-react-with-react-beautiful-dnd/
