@@ -4,7 +4,7 @@ import { DragDropContext } from 'react-beautiful-dnd'
 import { HEROES, COMICS } from './custom/data'
 import { shuffle, getTimeLeft, move, GAME_STATE } from './custom/utils'
 
-import ModalReady from './components/ModalReady'
+import ModalReady from './components/ModalReady2'
 import ModalEnd from './components/ModalEnd'
 import Header from './components/Header'
 import Dropzone from './components/Dropzone'
@@ -32,6 +32,8 @@ class App extends React.Component {
   state = initialState
 
   startGame = (player) => {
+    console.log('player', player)
+
     this.currentDeadline = Date.now() + GAME_DURATION
     this.setState(
       {
