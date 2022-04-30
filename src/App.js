@@ -4,7 +4,8 @@ import { DragDropContext } from 'react-beautiful-dnd'
 import { HEROES, COMICS } from './custom/data'
 import { shuffle, getTimeLeft, move, GAME_STATE } from './custom/utils'
 
-import Modal from './components/Modal'
+import ModalReady from './components/ModalReady'
+import ModalEnd from './components/ModalEnd'
 import Header from './components/Header'
 import Dropzone from './components/Dropzone'
 import Footer from './components/Footer'
@@ -23,17 +24,18 @@ const initialState = {
   [COMICS.OO]: [],
   [COMICS.PP]: [],
   gameState: GAME_STATE.READY,
-  timeLeft: 0
+  timeLeft: 0,
+  player: ''
 }
 
 class App extends React.Component {
   state = initialState
 
-  startGame = () => {
+  startGame = (player) => {
     this.currentDeadline = Date.now() + GAME_DURATION
-
     this.setState(
       {
+        player: player,
         gameState: GAME_STATE.PLAYING,
         timeLeft: getTimeLeft(this.currentDeadline),
       },
@@ -89,12 +91,15 @@ class App extends React.Component {
       <>
         <Header gameState={gameState} timeLeft={timeLeft} endGame={this.endGame} />
         {this.state.gameState !== GAME_STATE.PLAYING && (
-          <Modal
+          this.state.gameState === GAME_STATE.READY ? 
+          <ModalReady
             startGame={this.startGame}
-            resetGame={this.resetGame}
-            timeLeft={timeLeft}
-            gameState={gameState}
+          /> :
+          <ModalEnd
+            player={this.state.player}
             groups={groups}
+            timeLeft={timeLeft}
+            resetGame={this.resetGame}
           />
         )}
         {(this.state.gameState === GAME_STATE.PLAYING ||

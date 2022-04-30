@@ -56,15 +56,14 @@ export function saveScore (name, score) {
   }) 
 }
 
-export function getTotalScore(groups, timeLeft) {
-  const gameScore = Object.values(COMICS).reduce(
-    (sum, value) => sum + calculateScore(groups[value], value),
-    0
-  );
-  
+export function getTotalScore(groups, timeLeft, player) {
+  const gameScore = Object
+    .values(COMICS)
+    .reduce((sum, value) => sum + calculateScore(groups[value], value), 0);
+    
   const timeBonus = getSeconds(timeLeft);
   const score = gameScore ? gameScore + timeBonus : 0
-  saveScore ('pepe', score)
+  saveScore (player, score)
 
   return score
 }
