@@ -3,7 +3,7 @@ export const COMICS = {
   AS: 'Architectural Styles',
   DP: 'Design Patterns',
   DR: 'Design Principles',
-  OO: 'Object Oriented Programming',
+  OO: 'OOP',
   PP: 'Programming Paradigms',
   EP: 'Enterprise Patterns',
   AR: 'Architectural Principles',

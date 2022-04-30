@@ -4,11 +4,21 @@
 }
 
 /*Set up the columns with a 100% height, body color and overflow scroll*/
+.dropzone .dz-preview.lp-preview {
+  width: 150px;
+}
+.dropzone.hzScroll {
+  width: 340px;
+  overflow: auto;
+  white-space: nowrap;
+}
 
 .left{
-  background-color: red;
-  height: 100%;
-  overflow-y: scroll;
+  position: absolute;
+  /*background-color: red;*/
+  width: 11%;
+  height: 60%;
+  overflow-y: auto;
 }
 
 .right{

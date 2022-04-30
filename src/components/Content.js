@@ -12,7 +12,7 @@ class Content extends React.Component {
     return (
       <DragDropContext onDragEnd={this.props.onDragEnd}>
         <div className="columns">
-          <div className="col-2">
+          <div className="col-1 left">
             <Dropzone
               id="bench"
               heroes={this.props.heroes}

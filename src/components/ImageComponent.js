@@ -1,8 +1,6 @@
 import React from "react";
 import "./ImageComponent.css";
 
-import stackImage from './images/stack.jpg';
-
 export default class ImageComponent extends React.Component {
   state = { isOpen: false };
 
@@ -15,7 +13,7 @@ export default class ImageComponent extends React.Component {
       <div>
         <img
           className="image-small"
-          src={stackImage}
+          src='./images/stack.jpg'
           onClick={this.handleShowDialog}
           alt="not ofund"
         />
@@ -28,7 +26,7 @@ export default class ImageComponent extends React.Component {
           >
             <img
               className="image-big"
-              src={stackImage}
+              src='./images/stack.jpg'
               onClick={this.handleShowDialog}
               alt="not found"
             />
