@@ -22,11 +22,21 @@ export function shuffle(array) {
   return array;
 }
 
+function getKeyByValue(object, value) {
+  return Object.keys(object).find(key => object[key] === value)
+}
+
 // method to handle points calculation based on sort order as well as grouping
-function calculateScore(groupedHeroes, comics) {
-  const correctOrder = HEROES.filter(hero => hero.comics === comics).sort((a, b) =>
-    a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1
+function calculateScore(groupedHeroes, groupValue) {
+  // in data HEROUES, the comics has the KEY setted 
+  // in group, we receive de VALUE, so we have to get KEY from VALUE
+  const correctOrder = HEROES
+      .filter(hero => hero.comics === getKeyByValue(COMICS, groupValue))
+      .sort((a, b) => a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1
   );
+
+  if (!groupedHeroes)
+    return 0
 
   return groupedHeroes.reduce((score, { name }, index) => {
     const maxPoint = HEROES.length;
@@ -40,6 +50,7 @@ function calculateScore(groupedHeroes, comics) {
 export function saveScore (name, score) {
   const db = Firebase.firestore()
   db.collection('scores').add({
+    date: new Date().toISOString(),
     name: name,
     score: score
   }) 
@@ -47,7 +58,7 @@ export function saveScore (name, score) {
 
 export function getTotalScore(groups, timeLeft) {
   const gameScore = Object.values(COMICS).reduce(
-    (sum, comicsName) => sum + calculateScore(groups[comicsName], comicsName),
+    (sum, value) => sum + calculateScore(groups[value], value),
     0
   );
   

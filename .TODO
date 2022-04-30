@@ -1,13 +1,21 @@
-Must:
+- no suma puntos
 
-- Agregar variables de entorno en docker (ver como agregar por línea de comando)
+- Agregar nombre al prinicipio como obligatorio (disable button)
 
-- Guardar datos de score en firebase
-- Agregar nombre al finalizar como obligatorio (disable button)
+- Agregar pantalla inicial con stack de arquitectura con clock de tiempo (popUp)
 
-- Actualizar palabras 
 - Actualizar imágenes para cada palabra
 
-Deseable:
-- Agregar pantalla inicial con stack de arquitectura con clock de tiempo (popUp)
+- Actualiza variables comics y heroes
+
+
+-----
+
+- Acomodar layout
+
+- Se puede agregar más detalle a cada tarea:
+  https://www.freecodecamp.org/news/how-to-add-drag-and-drop-in-react-with-react-beautiful-dnd/
+  https://blog.logrocket.com/adding-drag-and-drop-functionality-with-react-beautiful-dnd/
+  https://codesandbox.io/s/zealous-noyce-ewy3j?from-embed=&file=/src/index.js
+
 - Agregar link a pantalla con scores (leer de firebase los scores)
