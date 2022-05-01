@@ -4,6 +4,10 @@
   top: 0%;
 }
 
+img:hover {
+  cursor: pointer;
+}
+
 .image-small {
   margin: 0px;
   width: 85%;

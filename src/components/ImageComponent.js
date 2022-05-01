@@ -12,6 +12,9 @@ export default class ImageComponent extends React.Component {
     return (
       <div>
         <img
+          data-toggle="tooltip"
+          data-placement="top"
+          title="Click to enlarge"
           className="image-small"
           src='./images/stack.jpg'
           onClick={this.handleShowDialog}
