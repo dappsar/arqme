@@ -1,16 +1,10 @@
+- Actualiza variables comics y heroes
 
-- Actualizar imágenes para cada palabra
-
------
-
+- Agregar link a pantalla con scores (leer de firebase los scores)
 
 - Acomodar layout (ver si Dropzone tiene algo de estilos)
-
-- Actualiza variables comics y heroes
 
 - Se puede agregar más detalle a cada tarea:
   https://www.freecodecamp.org/news/how-to-add-drag-and-drop-in-react-with-react-beautiful-dnd/
   https://blog.logrocket.com/adding-drag-and-drop-functionality-with-react-beautiful-dnd/
   https://codesandbox.io/s/zealous-noyce-ewy3j?from-embed=&file=/src/index.js
-
-- Agregar link a pantalla con scores (leer de firebase los scores)

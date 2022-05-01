@@ -15,16 +15,14 @@
 
 .left{
   position: absolute;
-  /*background-color: red;*/
   width: 11%;
   height: 60%;
   overflow-y: auto;
 }
 
 .right{
-  background-color: blue;
+  margin-left: 250px;
   height: 100%;
-  overflow-y: scroll;
 }
 
 .mid{

@@ -3,7 +3,7 @@ export const COMICS = {
   AS: 'Architectural Styles',
   DP: 'Design Patterns',
   DR: 'Design Principles',
-  OO: 'OOP',
+  OO: 'Object Oriented',
   PP: 'Programming Paradigms',
   EP: 'Enterprise Patterns',
   AR: 'Architectural Principles',
@@ -85,6 +85,10 @@ export const HEROES = [
   },
   {
     name: 'YAGNI',
+    comics: 'DR'
+  },
+  {
+    name: 'Comp. Over Inh.',
     comics: 'DR'
   },
   {

@@ -11,7 +11,7 @@ import Content from './components/Content'
 
 import './app.css';
 
-const GAME_DURATION = 1000 * 90 // 90 seconds
+const GAME_DURATION = 1000 * 120 // 120 seconds
 
 const initialState = {
   // we initialize the state by populating the bench with a shuffled collection of heroes
