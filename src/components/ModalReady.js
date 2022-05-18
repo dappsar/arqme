@@ -1,15 +1,27 @@
 import React from 'react'
 
 import ImageComponent from "./ImageComponent"
+
 import "./modalReady.css"
+import { api as apiHighScores } from '../services/apiHighScores'
 
 const initialState = Object.freeze({
   player: '',
   key: 'home'
 })
-
+// https://getbootstrap.com/docs/4.0/components/collapse/
 class ModalReady extends React.Component {
   state = initialState
+
+  constructor() {
+    super()
+    apiHighScores.getHighScore().then(function (data) {
+      data.sort (function (a, b) {
+        return parseFloat(b.score) - parseFloat(a.score)
+      })
+      console.log(data)
+    })
+  }
 
   handleInputPlayerChange = (e) => {
     this.setState (
@@ -24,8 +36,6 @@ class ModalReady extends React.Component {
       <div className="modal modal-dialog-centered active">
         <div className="modal-container">
           <div className="modal-header">
-
-
             <div className="modal-title h3">Digital Architecture Game!</div>
             <hr/>
           </div>

@@ -44,7 +44,7 @@ function calculateScore(groupedHeroes, groupValue) {
     const maxPoint = HEROES.length;
     const heroIndex = correctOrder.findIndex(hero => hero.name === name);
     const penalty = heroIndex >= 0 ? Math.abs(index - heroIndex) : maxPoint;
-    console.log({ name, points: maxPoint - penalty });
+    // console.log({ name, points: maxPoint - penalty });
     return score + (maxPoint - penalty);
   }, 0);
 }

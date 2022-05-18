@@ -9169,7 +9169,7 @@
     "strip-ansi" "5.0.0"
     "text-table" "0.2.0"
 
-"react-dom@^16.8.3", "react-dom@>=16.14.0", "react-dom@>=16.6.0":
+"react-dom@^16.8.3", "react-dom@>=16", "react-dom@>=16.14.0", "react-dom@>=16.6.0":
   "integrity" "sha512-1gCeQXDLoIqMgqD3IO2Ah9bnf0w9kzhwN5q4FGnHZ67hBm9yePzB5JJAIQCc8x3pFnNlwFq4RidZggNAAkzWWw=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-16.14.0.tgz"
   "version" "16.14.0"
@@ -9272,7 +9272,7 @@
     "loose-envify" "^1.4.0"
     "prop-types" "^15.6.2"
 
-"react@^0.14.0 || ^15.0.0-0 || ^16.0.0-0", "react@^16.14.0", "react@^16.3.1", "react@^16.8.0 || ^17.0.0-rc.1", "react@^16.8.3", "react@>=0.14.0", "react@>=15.0.0", "react@>=16.14.0", "react@>=16.6.0", "react@>=16.8.0":
+"react@^0.14.0 || ^15.0.0-0 || ^16.0.0-0", "react@^16.14.0", "react@^16.3.1", "react@^16.8.0 || ^17.0.0-rc.1", "react@^16.8.3", "react@>=0.14.0", "react@>=15.0.0", "react@>=16", "react@>=16.14.0", "react@>=16.6.0", "react@>=16.8.0":
   "integrity" "sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g=="
   "resolved" "https://registry.npmjs.org/react/-/react-16.14.0.tgz"
   "version" "16.14.0"
@@ -9280,6 +9280,11 @@
     "loose-envify" "^1.1.0"
     "object-assign" "^4.1.1"
     "prop-types" "^15.6.2"
+
+"reactjs-popup@^2.0.5":
+  "integrity" "sha512-b5hv9a6aGsHEHXFAgPO5s1Jw1eSkopueyUVxQewGdLgqk2eW0IVXZrPRpHR629YcgIpC2oxtX8OOZ8a7bQJbxA=="
+  "resolved" "https://registry.npmjs.org/reactjs-popup/-/reactjs-popup-2.0.5.tgz"
+  "version" "2.0.5"
 
 "read-pkg-up@^1.0.1":
   "integrity" "sha1-nWPBMnbAZZGNV/ACpX9AobZD+wI="
