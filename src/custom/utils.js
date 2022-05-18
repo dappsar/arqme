@@ -1,5 +1,7 @@
 import { HEROES, COMICS } from './data';
-import Firebase from '../components/Firebase'
+import { api as apiHighScores } from '../services/apiHighScores'
+import { api as apiScores } from '../services/apiScores'
+import { api as apiConfig } from '../services/apiConfig'
 
 // the Knuth shuffle algorithm
 export function shuffle(array) {
@@ -47,14 +49,13 @@ function calculateScore(groupedHeroes, groupValue) {
   }, 0);
 }
 
-export function saveScore (name, score) {
-  const db = Firebase.firestore()
-  db.collection('scores').add({
-    date: new Date().toISOString(),
-    name: name,
-    score: score
-  }) 
+async function persistsScoreAsync(player, score) {
+  const date = new Date().toISOString()
+  await apiScores.saveScore (date, player, score)
+  await apiHighScores.saveHighScore (date, player, score)
+  await apiConfig.incrementTotalPlayers()
 }
+
 
 export function getTotalScore(groups, timeLeft, player) {
   const gameScore = Object
@@ -63,10 +64,12 @@ export function getTotalScore(groups, timeLeft, player) {
     
   const timeBonus = getSeconds(timeLeft);
   const score = gameScore ? gameScore + timeBonus : 0
-  saveScore (player, score)
+  
+  persistsScoreAsync(player, score) 
 
   return score
 }
+
 
 // method to handle to the heroe cards movement
 export const move = (state, source, destination) => {

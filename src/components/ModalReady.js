@@ -1,9 +1,11 @@
-import React from 'react';
-import ImageComponent from "./ImageComponent";
-import "./modalReady.css";
+import React from 'react'
+
+import ImageComponent from "./ImageComponent"
+import "./modalReady.css"
 
 const initialState = Object.freeze({
-  player: ''
+  player: '',
+  key: 'home'
 })
 
 class ModalReady extends React.Component {
@@ -22,6 +24,8 @@ class ModalReady extends React.Component {
       <div className="modal modal-dialog-centered active">
         <div className="modal-container">
           <div className="modal-header">
+
+
             <div className="modal-title h3">Digital Architecture Game!</div>
             <hr/>
           </div>
