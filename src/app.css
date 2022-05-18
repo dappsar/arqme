@@ -1,0 +1,44 @@
+/*
+body, html {
+  margin: 0;
+  overflow: hidden;
+  height:100%;
+}
+*/
+
+#bench {
+  /*overflow-y: scroll; */
+}
+
+#left {
+  
+  /*
+  color: #2ecc71;
+  text-align: center;
+  height:100%;
+  position: absolute;
+  top: 30px;
+  bottom: 0;
+  left: 0;
+  width: 20%;
+  height: 85%;
+  overflow-y: scroll; 
+  */
+}
+
+#right {
+  
+  /*
+  height:100%;
+  background-color: #f1c40f;
+  position: absolute;
+  top: 30px;
+  bottom: 0;
+  right: 0;
+  overflow-y: scroll;
+  width: 75%;
+  height: 85%;
+  */
+  text-align: center;
+  
+}

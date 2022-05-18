@@ -1,4 +1,7 @@
 import { HEROES, COMICS } from './data';
+import { api as apiHighScores } from '../services/apiHighScores'
+import { api as apiScores } from '../services/apiScores'
+import { api as apiConfig } from '../services/apiConfig'
 
 // the Knuth shuffle algorithm
 export function shuffle(array) {
@@ -21,11 +24,21 @@ export function shuffle(array) {
   return array;
 }
 
+function getKeyByValue(object, value) {
+  return Object.keys(object).find(key => object[key] === value)
+}
+
 // method to handle points calculation based on sort order as well as grouping
-function calculateScore(groupedHeroes, comics) {
-  const correctOrder = HEROES.filter(hero => hero.comics === comics).sort((a, b) =>
-    a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1
+function calculateScore(groupedHeroes, groupValue) {
+  // in data HEROUES, the comics has the KEY setted 
+  // in group, we receive de VALUE, so we have to get KEY from VALUE
+  const correctOrder = HEROES
+      .filter(hero => hero.comics === getKeyByValue(COMICS, groupValue))
+      .sort((a, b) => a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1
   );
+
+  if (!groupedHeroes)
+    return 0
 
   return groupedHeroes.reduce((score, { name }, index) => {
     const maxPoint = HEROES.length;
@@ -36,14 +49,27 @@ function calculateScore(groupedHeroes, comics) {
   }, 0);
 }
 
-export function getTotalScore(groups, timeLeft) {
-  const gameScore = Object.values(COMICS).reduce(
-    (sum, comicsName) => sum + calculateScore(groups[comicsName], comicsName),
-    0
-  );
-  const timeBonus = getSeconds(timeLeft);
-  return gameScore ? gameScore + timeBonus : 0;
+async function persistsScoreAsync(player, score) {
+  const date = new Date().toISOString()
+  await apiScores.saveScore (date, player, score)
+  await apiHighScores.saveHighScore (date, player, score)
+  await apiConfig.incrementTotalPlayers()
 }
+
+
+export function getTotalScore(groups, timeLeft, player) {
+  const gameScore = Object
+    .values(COMICS)
+    .reduce((sum, value) => sum + calculateScore(groups[value], value), 0);
+    
+  const timeBonus = getSeconds(timeLeft);
+  const score = gameScore ? gameScore + timeBonus : 0
+  
+  persistsScoreAsync(player, score) 
+
+  return score
+}
+
 
 // method to handle to the heroe cards movement
 export const move = (state, source, destination) => {

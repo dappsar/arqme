@@ -1,55 +1,126 @@
 export const COMICS = {
-  DC: 'dc',
-  MARVEL: 'marvel',
-};
+  AP: 'Architectural Patterns',
+  AS: 'Architectural Styles',
+  DP: 'Design Patterns',
+  DR: 'Design Principles',
+  OO: 'Object Oriented',
+  PP: 'Programming Paradigms',
+  EP: 'Enterprise Patterns',
+  AR: 'Architectural Principles',
+  CC: 'Clean Code'
+}
 
 export const HEROES = [
   {
-    name: 'Superman',
-    comics: 'dc',
+    name: 'BDD',
+    comics: 'AP'
   },
   {
-    name: 'Batman',
-    comics: 'dc',
+    name: 'MVC',
+    comics: 'AP'
   },
   {
-    name: 'Flash',
-    comics: 'dc',
+    name: 'DDD',
+    comics: 'AP'
   },
   {
-    name: 'Aquaman',
-    comics: 'dc',
+    name: 'TDD',
+    comics: 'AP'
   },
   {
-    name: 'Wonder Woman',
-    comics: 'dc',
+    name: 'Layered',
+    comics: 'AS'
   },
   {
-    name: 'Green Lantern',
-    comics: 'dc',
+    name: 'Client-Server',
+    comics: 'AS'
   },
   {
-    name: 'Iron Man',
-    comics: 'marvel',
+    name: 'Monolithic',
+    comics: 'AS'
   },
   {
-    name: 'Spiderman',
-    comics: 'marvel',
+    name: 'Micro-Services',
+    comics: 'AS'
   },
   {
-    name: 'Captain America',
-    comics: 'marvel',
+    name: 'Hexagonal',
+    comics: 'AS'
   },
   {
-    name: 'Thor',
-    comics: 'marvel',
+    name: 'Onion',
+    comics: 'AS'
   },
   {
-    name: 'Hulk',
-    comics: 'marvel',
+    name: 'Strategy',
+    comics: 'DP'
   },
   {
-    name: 'Black Widow',
-    comics: 'marvel',
+    name: 'Singleton',
+    comics: 'DP'
   },
-];
+  {
+    name: 'Factory',
+    comics: 'DP'
+  },
+  {
+    name: 'Builder',
+    comics: 'DP'
+  },
+  {
+    name: 'Prototype',
+    comics: 'DP'
+  },
+  {
+    name: 'Command',
+    comics: 'DP'
+  },
+  {
+    name: 'SOLID',
+    comics: 'DR'
+  },
+  {
+    name: 'DRY',
+    comics: 'DR'
+  },
+  {
+    name: 'YAGNI',
+    comics: 'DR'
+  },
+  {
+    name: 'Comp. Over Inh.',
+    comics: 'DR'
+  },
+  {
+    name: 'Inheritance',
+    comics: 'OO'
+  },
+  {
+    name: 'Polymorphism',
+    comics: 'OO'
+  },
+  {
+    name: 'Encapsulation',
+    comics: 'OO'
+  },
+  {
+    name: 'Abstraction',
+    comics: 'OO'
+  },
+  {
+    name: 'Procedural',
+    comics: 'PP'
+  },
+  {
+    name: 'Structured',
+    comics: 'PP'
+  },
+  {
+    name: 'Object-Oriented',
+    comics: 'PP'
+  },
+  {
+    name: 'Functional',
+    comics: 'PP'
+  }
+]

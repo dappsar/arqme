@@ -30,7 +30,7 @@ const Hero = ({ name, index }) => (
           {...provided.dragHandleProps}
         >
           <figure style={{ backgroundColor: 'transparent' }} className="avatar tile-icon">
-            <img src={`./hero_icons/${name.toLowerCase().replace(' ', '-')}.svg`} alt={name} />
+            <img src={`./icons/${name.toLowerCase().replace(' ', '-')}.svg`} alt={name} />
           </figure>
           <div className="tile-content">{name}</div>
         </div>

@@ -1,9 +1,10 @@
-- Subir a github
-- Hace deploy del código en firebase
-- Agregar pantalla inicial con stack de arquitectura con clock de tiempo
-- rehacer / cambiar las palabras de la imagen incial
-- Agregar nombre al finalizar como obligatorio (disable button)
-- Actualizar palabras 
-- Actualizar imágenes para cada palabra
-- Guardar datos de scode en firebase
-- Agregar pantalla con scores
+- Actualiza variables comics y heroes
+
+- Agregar link a pantalla con scores (leer de firebase los scores)
+
+- Acomodar layout (ver si Dropzone tiene algo de estilos)
+
+- Se puede agregar más detalle a cada tarea:
+  https://www.freecodecamp.org/news/how-to-add-drag-and-drop-in-react-with-react-beautiful-dnd/
+  https://blog.logrocket.com/adding-drag-and-drop-functionality-with-react-beautiful-dnd/
+  https://codesandbox.io/s/zealous-noyce-ewy3j?from-embed=&file=/src/index.js
