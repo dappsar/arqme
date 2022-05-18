@@ -26,7 +26,6 @@ async function saveHighScore (date, name, score) {
 
     // ordenar array de json por campo score
     highScores.sort (function (a, b) {
-      console.log('orden:' + a.name)
       return parseFloat(b.score) - parseFloat(a.score)
     })
 
@@ -53,7 +52,13 @@ async function saveHighScore (date, name, score) {
 
 }
 
-const api = { saveHighScore }
+async function getHighScore () {
+  const highScoresDocs = await handleGet(getCollection(colNames.HICHSCORES))
+  return highScoresDocs.data
+}
+
+
+const api = { saveHighScore, getHighScore }
 
 export { api }
 
