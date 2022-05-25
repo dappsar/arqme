@@ -88,7 +88,7 @@ export const HEROES = [
     comics: 'DR'
   },
   {
-    name: 'Comp. Over Inh.',
+    name: 'Comp. over inh.',
     comics: 'DR'
   },
   {

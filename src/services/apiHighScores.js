@@ -17,6 +17,8 @@ async function saveHighScore (date, name, score) {
     const highScoresDocs = await handleGet(getCollection(colNames.HICHSCORES))
     const highScores = highScoresDocs.data
 
+    console.log('highScores:' + highScores.length)
+
     highScores.push ({
       date: date,
       name: name,
@@ -38,7 +40,19 @@ async function saveHighScore (date, name, score) {
     await deleteCollection (colNames.HICHSCORES)
     
     // persiste en firestore
-    var position = 0
+    //var position = 0
+    const limit = (highScores.length <= 10 ? highScores.length : 10)
+    for(let i = 0; i < limit; i++){
+      var item = highScores[i]
+      db.collection(colNames.HICHSCORES).add({
+        date: item.date,
+        name: item.name,
+        score: item.score,
+        position: i+1
+      }) 
+    }
+
+    /*
     highScores.forEach(item => {
       position += 1
       db.collection(colNames.HICHSCORES).add({
@@ -48,6 +62,7 @@ async function saveHighScore (date, name, score) {
         position: position
       }) 
     })
+    */
   }
 
 }

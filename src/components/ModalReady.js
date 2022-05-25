@@ -13,6 +13,7 @@ const initialState = Object.freeze({
 class ModalReady extends React.Component {
   state = initialState
 
+  /*
   constructor() {
     super()
     apiHighScores.getHighScore().then(function (data) {
@@ -21,7 +22,7 @@ class ModalReady extends React.Component {
       })
       console.log(data)
     })
-  }
+  }*/
 
   handleInputPlayerChange = (e) => {
     this.setState (

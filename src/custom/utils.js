@@ -49,7 +49,7 @@ function calculateScore(groupedHeroes, groupValue) {
   }, 0);
 }
 
-async function persistsScoreAsync(player, score) {
+export async function persistsScoreAsync(player, score) {
   const date = new Date().toISOString()
   await apiScores.saveScore (date, player, score)
   await apiHighScores.saveHighScore (date, player, score)
@@ -57,7 +57,7 @@ async function persistsScoreAsync(player, score) {
 }
 
 
-export function getTotalScore(groups, timeLeft, player) {
+export function getTotalScore(groups, timeLeft) {
   const gameScore = Object
     .values(COMICS)
     .reduce((sum, value) => sum + calculateScore(groups[value], value), 0);
@@ -65,8 +65,6 @@ export function getTotalScore(groups, timeLeft, player) {
   const timeBonus = getSeconds(timeLeft);
   const score = gameScore ? gameScore + timeBonus : 0
   
-  persistsScoreAsync(player, score) 
-
   return score
 }
 
