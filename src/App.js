@@ -31,8 +31,6 @@ class App extends React.Component {
   state = initialState
 
   startGame = (player) => {
-    console.log('player', player)
-
     this.currentDeadline = Date.now() + GAME_DURATION
     this.setState(
       {

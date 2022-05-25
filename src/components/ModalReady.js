@@ -3,7 +3,6 @@ import React from 'react'
 import ImageComponent from "./ImageComponent"
 
 import "./modalReady.css"
-import { api as apiHighScores } from '../services/apiHighScores'
 
 const initialState = Object.freeze({
   player: '',
@@ -12,16 +11,6 @@ const initialState = Object.freeze({
 // https://getbootstrap.com/docs/4.0/components/collapse/
 class ModalReady extends React.Component {
   state = initialState
-
-  constructor() {
-    super()
-    apiHighScores.getHighScore().then(function (data) {
-      data.sort (function (a, b) {
-        return parseFloat(b.score) - parseFloat(a.score)
-      })
-      console.log(data)
-    })
-  }
 
   handleInputPlayerChange = (e) => {
     this.setState (
