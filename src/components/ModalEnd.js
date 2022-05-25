@@ -47,7 +47,7 @@ class ModalEnd extends React.Component {
           <div className="modal-title h7">High Scores:</div>
           <ul>
             {this.state.hg.map(item => {
-              return <li>{item.name}: {item.score}</li>;
+              return <li key={item.id}>{item.name}: {item.score}</li>;
             })}
           </ul>
         </>
