@@ -2,6 +2,7 @@ import React from 'react'
 
 import { getTotalScore, persistsScoreAsync } from '../custom/utils'
 import { api as apiHighScores } from '../services/apiHighScores'
+import LoadingSpinner from './LoadingSpinner'
 
 class ModalEnd extends React.Component {
 
@@ -32,6 +33,28 @@ class ModalEnd extends React.Component {
     console.log(this.state)
   }
 
+  HighScores = (e) => {
+    if (Object.keys(this.state.hg).length === 0) {
+      return (
+        <>
+          <div className="modal-title h7">High Scores:</div>
+          <LoadingSpinner/>
+        </>
+      )
+    } else {
+      return (
+        <>
+          <div className="modal-title h7">High Scores:</div>
+          <ul>
+            {this.state.hg.map(item => {
+              return <li>{item.name}: {item.score}</li>;
+            })}
+          </ul>
+        </>
+      )
+    }
+  }
+
   render () {
     return (
       <div className="modal modal-sm active">
@@ -48,8 +71,7 @@ class ModalEnd extends React.Component {
             <br/>
             <hr></hr>
             <div className="content">
-              <div className="modal-title h7">High Scores:</div>
-                {this.state.hg.length}
+              <this.HighScores/>
             </div>
           </div>
           <div className="modal-footer">
