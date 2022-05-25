@@ -68,7 +68,6 @@ class ModalEnd extends React.Component {
               {' '}
                 {`You scored: ${ getTotalScore(this.state.groups, this.state.timeLeft) }`}
             </div>
-            <br/>
             <hr></hr>
             <div className="content">
               <this.HighScores/>
